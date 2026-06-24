@@ -1,0 +1,286 @@
+# Copyright (C) 2026 Fikri
+# This file is distributed under the same license as the Sale Coupon plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sale Coupon 1.0.0\n"
+"Report-Msgid-Bugs-To: https://avdini.com/sale-coupon\n"
+"Last-Translator: Fikri <fikri@example.com>\n"
+"Language-Team: Turkish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-06-24T14:00:00+03:00\n"
+"X-Domain: sale-coupon\n"
+
+#: sale-coupon.php:40
+msgid "Sale Coupon requires WooCommerce to be installed and active."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:38
+msgid "Sale Coupon"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:51
+msgid "Kupon Satış Eklentisi Ayarları"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:53
+msgid "Müşterilere satılacak olan kuponların varsayılan yapılandırma ayarlarını buradan yapabilirsiniz."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:57
+msgid "Kupon Kod Ön Eki (Prefix)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:58
+msgid "Oluşturulacak kuponların başına eklenecek varsayılan ön ek (örn: GIFT-). Ürün bazlı ayarlanmazsa bu kullanılır."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:66
+msgid "Rastgele Karakter Uzunluğu"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:67
+msgid "Kupon kodundaki rastgele karakter sayısı (Güvenlik için minimum 8 olmalıdır)."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:78
+msgid "Minimum Kupon Tutarı"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:79
+msgid "Müşterinin satın alabileceği minimum kupon tutarı (Mağaza para biriminde)."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:90
+msgid "Maksimum Kupon Tutarı"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:91
+msgid "Müşterinin satın alabileceği maksimum kupon tutarı (Mağaza para biriminde)."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:102
+msgid "İndirim Türü"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:103
+msgid "Oluşturulacak kuponların varsayılan indirim türü."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:107
+msgid "Sabit Sepet İndirimi (Önerilen)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:108
+msgid "Sabit Ürün İndirimi"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:113
+msgid "Geçerlilik Süresi (Gün)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:114
+msgid "Oluşturulan kuponların kaç gün boyunca geçerli olacağı (Sınırsız için boş bırakın veya 0 yazın)."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:124
+msgid "E-posta Bildirimi"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:125
+msgid "Kupon başarıyla oluşturulduğunda müşteriye kupon kodunu içeren e-posta gönderilsin."
+msgstr ""
+
+#: src/Admin/CouponMetaBox.php:33 src/Admin/CouponMetaBox.php:37
+msgid "Satış Bilgisi"
+msgstr ""
+
+#: src/Admin/CouponMetaBox.php:57
+msgid "Satılan Kupon"
+msgstr ""
+
+#: src/Admin/CouponMetaBox.php:63
+msgid "Alıcı:"
+msgstr ""
+
+#: src/Admin/CouponMetaBox.php:73
+msgid "Sipariş:"
+msgstr ""
+
+#: src/ProductType/ProductTypeRegistrar.php:26
+msgid "Kupon Ürünü"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:26 src/ProductType/ProductDataPanels.php:32
+msgid "Kupon Ayarları"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:52
+msgid "Kupon Ön Eki (Prefix)"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:55
+msgid "Boş bırakılırsa genel ayarlardaki prefix kullanılır."
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:61
+msgid "Geçerlilik Süresi (Gün)"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:65
+msgid "Boş bırakılırsa genel ayarlardaki gün kullanılır."
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:78
+msgid "Varsayılan (Genel Ayarlar)"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:79
+msgid "Sabit Sepet İndirimi"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:80
+msgid "Sabit Ürün İndirimi"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:83
+msgid "Boş bırakılırsa genel ayarlardaki indirim türü kullanılır."
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:93
+msgid "Min Tutar (%s)"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:97
+msgid "Müşterinin satın alabileceği minimum limit."
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:107
+msgid "Max Tutar (%s)"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:111
+msgid "Müşterinin satın alabileceği maksimum limit."
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:121
+msgid "Hazır Tutarlar"
+msgstr ""
+
+#: src/ProductType/ProductDataPanels.php:124
+msgid "Müşteriye sunulacak hazır tutar butonları. Virgülle ayırarak girin (örn: 25,50,100,250). Boş bırakırsanız sadece serbest giriş alanı gösterilir."
+msgstr ""
+
+#: templates/single-product/add-to-cart/sale-coupon.php:26
+msgid "Kupon Tutarını Seçin"
+msgstr ""
+
+#: templates/single-product/add-to-cart/sale-coupon.php:36
+msgid "veya özel tutar girin"
+msgstr ""
+
+#: templates/single-product/add-to-cart/sale-coupon.php:43 src/Cart/CartItemData.php:67
+msgid "Kupon Tutarı"
+msgstr ""
+
+#: templates/single-product/add-to-cart/sale-coupon.php:62
+msgid "Min: %1$s — Max: %2$s"
+msgstr ""
+
+#: src/Cart/CartValidator.php:40
+msgid "Kupon ürünü içeren sepetlere indirim kuponu uygulanamaz."
+msgstr ""
+
+#: src/Cart/CartValidator.php:64
+msgid "Sepetinizde zaten bir kupon ürünü bulunmaktadır. Aynı anda yalnızca bir adet kupon satın alabilirsiniz."
+msgstr ""
+
+#: src/Cart/CartValidator.php:71
+msgid "Lütfen kupon tutarı girin."
+msgstr ""
+
+#: src/Cart/CartValidator.php:93
+msgid "Kupon tutarı minimum limitin altındadır (%s)."
+msgstr ""
+
+#: src/Cart/CartValidator.php:104
+msgid "Kupon tutarı maksimum limiti aşmaktadır (%s)."
+msgstr ""
+
+#: src/Order/OrderHandler.php:84
+msgid "Kupon başarıyla oluşturuldu. Kod: %1$s, Tutar: %2$s"
+msgstr ""
+
+#: src/Email/CouponPurchasedEmail.php:43
+msgid "Satın Alınan Kupon Bilgisi"
+msgstr ""
+
+#: src/Email/CouponPurchasedEmail.php:44
+msgid "Kupon satın alma işlemi tamamlandığında müşteriye kupon kodunu iletmek üzere gönderilir."
+msgstr ""
+
+#: src/Email/CouponPurchasedEmail.php:49
+msgid "Hediye Kuponunuz Hazır!"
+msgstr ""
+
+#: src/Email/CouponPurchasedEmail.php:50
+msgid "Siparişiniz Tamamlandı - Hediye Kuponunuz Ektedir"
+msgstr ""
+
+#: src/Email/CouponPurchasedEmail.php:72 src/Account/MenuExtender.php:32
+#: src/Account/MenuExtender.php:40
+msgid "Kuponlarım"
+msgstr ""
+
+#: src/Email/CouponPurchasedEmail.php:72
+msgid "Sınırsız"
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:19
+msgid "Merhaba %s,"
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:20
+msgid "Kupon satın alma işleminiz başarıyla tamamlandı. Satın aldığınız kupon kodunu ve ayrıntılarını aşağıda bulabilirsiniz:"
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:32
+msgid "Sipariş No:"
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:36
+msgid "Son Kullanma Tarihi:"
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:40
+msgid "Kullanım Koşulu:"
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:41
+msgid "Tek kullanımlıktır ve başka kuponlarla birleştirilemez."
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:46
+msgid "Kuponunuzu alışveriş yaparken ödeme sayfasında kupon kodu alanına girerek kullanabilirsiniz."
+msgstr ""
+
+#: templates/emails/coupon-purchased.php:47
+msgid "Bizi tercih ettiğiniz için teşekkür ederiz!"
+msgstr ""
+
+#: src/API/CouponEndpoint.php:20
+msgid "Bu işlem için giriş yapmalısınız."
+msgstr ""
+
+#: templates/myaccount/my-coupons.php:8
+msgid "Satın Aldığım Kuponlar"
+msgstr ""
+
+#: templates/myaccount/my-coupons.php:9
+msgid "Burada daha önce satın aldığınız tek kullanımlık hediye kuponlarını bulabilir ve kodlarını kopyalayarak alışverişlerinizde kullanabilirsiniz."
+msgstr ""
+
+#: templates/myaccount/my-coupons.php:14
+msgid "Kuponlar yükleniyor..."
+msgstr ""

@@ -1,0 +1,12 @@
+{
+  "name": "sale-coupon",
+  "version": "1.0.0",
+  "description": "WooCommerce coupon purchasing plugin asset compiler",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  }
+}

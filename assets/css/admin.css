@@ -1,0 +1,23 @@
+/**
+ * Sale Coupon Plugin - Admin Stylesheet
+ */
+
+#sale_coupon_options_panel .options_group {
+	padding: 15px 20px;
+	border-bottom: 1px solid #eee;
+}
+
+#sale_coupon_options_panel .options_group:last-child {
+	border-bottom: none;
+}
+
+#sale_coupon_options_panel .options_group label {
+	font-weight: 600;
+	color: #333;
+}
+
+#sale_coupon_options_panel .options_group input[type="text"],
+#sale_coupon_options_panel .options_group input[type="number"],
+#sale_coupon_options_panel .options_group select {
+	min-width: 250px;
+}

@@ -1,0 +1,298 @@
+/**
+ * Sale Coupon Plugin - Frontend Stylesheet
+ * Styled with rich, premium aesthetics (modern transitions, soft shadows, clear visual hierarchy).
+ */
+
+/* 1. Product Page Form Styles */
+.sc-purchase-container {
+	background: #fbf9ff;
+	border: 1px solid #eae2f8;
+	padding: 20px;
+	border-radius: 12px;
+	margin-bottom: 25px;
+	box-shadow: 0 4px 15px rgba(127, 84, 179, 0.03);
+}
+
+.sc-presets-wrapper {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.sc-preset-btn {
+	background: #ffffff !important;
+	color: #4a4a4a !important;
+	border: 1.5px solid #dcd3ee !important;
+	border-radius: 8px !important;
+	padding: 12px 22px !important;
+	font-weight: 600 !important;
+	font-size: 15px !important;
+	cursor: pointer;
+	transition: all 0.25s ease !important;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.sc-preset-btn:hover {
+	border-color: #7f54b3 !important;
+	color: #7f54b3 !important;
+	background: #f8f5fd !important;
+	transform: translateY(-1px);
+}
+
+.sc-preset-btn.active {
+	background: #7f54b3 !important;
+	color: #ffffff !important;
+	border-color: #7f54b3 !important;
+	box-shadow: 0 4px 12px rgba(127, 84, 179, 0.3) !important;
+}
+
+.sc-divider {
+	position: relative;
+	text-align: center;
+	margin: 20px 0;
+}
+
+.sc-divider::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px dashed #dcd3ee;
+	z-index: 1;
+}
+
+.sc-divider span {
+	position: relative;
+	background: #fbf9ff;
+	padding: 0 15px;
+	color: #8c81a5;
+	font-size: 13px;
+	z-index: 2;
+	font-weight: 500;
+}
+
+.sc-input-wrapper {
+	position: relative;
+	display: inline-block;
+	margin-top: 5px;
+}
+
+.sc-input-wrapper input[type="number"] {
+	width: 180px !important;
+	height: 48px !important;
+	padding: 10px 40px 10px 15px !important;
+	border: 1.5px solid #dcd3ee !important;
+	border-radius: 8px !important;
+	font-size: 16px !important;
+	font-weight: 600 !important;
+	color: #333 !important;
+	transition: all 0.2s ease;
+	background: #ffffff;
+}
+
+.sc-input-wrapper input[type="number"]:focus {
+	border-color: #7f54b3 !important;
+	box-shadow: 0 0 0 3px rgba(127, 84, 179, 0.15) !important;
+	outline: none;
+}
+
+.sc-input-wrapper .sc-currency-symbol {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	font-weight: 700;
+	color: #7f54b3;
+	pointer-events: none;
+}
+
+.sc-limits-desc {
+	margin-top: 6px;
+	color: #8c81a5;
+	font-size: 13px;
+}
+
+
+/* 2. My Account Coupons Grid & Cards */
+.sc-coupons-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 20px;
+	margin-top: 25px;
+}
+
+.sc-coupon-card {
+	background: #ffffff;
+	border: 1.5px solid #eaeaea;
+	border-radius: 12px;
+	padding: 20px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+	overflow: hidden;
+}
+
+/* Card dashed ticket border style */
+.sc-coupon-card::before,
+.sc-coupon-card::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	width: 14px;
+	height: 14px;
+	background: #ffffff; /* Matches wrapper background */
+	border: 1.5px solid #eaeaea;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.sc-coupon-card::before {
+	left: -8px;
+	transform: translateY(-50%) rotate(45deg);
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+}
+
+.sc-coupon-card::after {
+	right: -8px;
+	transform: translateY(-50%) rotate(45deg);
+	border-right-color: transparent;
+	border-top-color: transparent;
+}
+
+.sc-coupon-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.sc-coupon-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 12px;
+	border-bottom: 1px dashed #eaeaea;
+	margin-bottom: 15px;
+}
+
+.sc-coupon-code {
+	font-family: monospace;
+	font-size: 16px;
+	font-weight: 700;
+	color: #2c2c2c;
+	letter-spacing: 0.5px;
+}
+
+.sc-copy-btn {
+	padding: 5px 10px !important;
+	font-size: 12px !important;
+	height: auto !important;
+	line-height: 1.2 !important;
+	font-weight: 600 !important;
+	background: #f3ebff !important;
+	color: #7f54b3 !important;
+	border: none !important;
+	border-radius: 6px !important;
+	transition: all 0.2s ease !important;
+}
+
+.sc-copy-btn:hover {
+	background: #7f54b3 !important;
+	color: #ffffff !important;
+}
+
+.sc-copy-btn.copied {
+	background: #e2f8e9 !important;
+	color: #1e7e34 !important;
+}
+
+.sc-coupon-body {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.sc-coupon-amount {
+	font-size: 24px;
+	font-weight: 800;
+	color: #7f54b3;
+}
+
+.sc-coupon-status-badge {
+	font-size: 12px;
+	font-weight: 700;
+	padding: 4px 10px;
+	border-radius: 20px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.sc-coupon-footer {
+	font-size: 13px;
+	color: #777;
+	border-top: 1px solid #fafafa;
+	padding-top: 10px;
+}
+
+.sc-meta-item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 4px;
+}
+
+.sc-meta-item:last-child {
+	margin-bottom: 0;
+}
+
+.sc-meta-item strong {
+	color: #555;
+	font-weight: 600;
+}
+
+/* Status Specific Styles */
+.sc-coupon-card.sc-status-active {
+	border-color: #dcd3ee;
+}
+.sc-coupon-card.sc-status-active:hover {
+	box-shadow: 0 8px 24px rgba(127, 84, 179, 0.1);
+}
+.sc-coupon-card.sc-status-active .sc-coupon-status-badge {
+	background: #e8f9ed;
+	color: #155724;
+}
+
+.sc-coupon-card.sc-status-used {
+	opacity: 0.75;
+}
+.sc-coupon-card.sc-status-used .sc-coupon-status-badge {
+	background: #fdf2f2;
+	color: #9b1c1c;
+}
+.sc-coupon-card.sc-status-used .sc-coupon-amount {
+	color: #8c8c8c;
+}
+.sc-coupon-card.sc-status-used .sc-copy-btn {
+	display: none;
+}
+
+.sc-coupon-card.sc-status-expired {
+	opacity: 0.6;
+}
+.sc-coupon-card.sc-status-expired .sc-coupon-status-badge {
+	background: #f3f4f6;
+	color: #4b5563;
+}
+.sc-coupon-card.sc-status-expired .sc-coupon-amount {
+	color: #999;
+}
+.sc-coupon-card.sc-status-expired .sc-copy-btn {
+	display: none;
+}
