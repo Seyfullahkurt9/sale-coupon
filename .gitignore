@@ -1,5 +1,7 @@
 # WordPress / WooCommerce exclusions
 /vendor/
+/sale-coupon.zip
+
 
 # Node.js
 /node_modules/
