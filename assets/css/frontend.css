@@ -117,6 +117,17 @@
 	font-size: 13px;
 }
 
+.sc-label {
+	font-weight: 600;
+	display: block;
+	margin-bottom: 8px;
+	color: #333;
+}
+
+.sc-custom-amount-wrapper {
+	margin-top: 20px;
+}
+
 
 /* 2. My Account Coupons Grid & Cards */
 .sc-coupons-grid {
