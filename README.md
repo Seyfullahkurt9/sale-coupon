@@ -45,6 +45,11 @@ npm run build
 ### Ürün Bazlı Ayarlar
 Yeni bir ürün eklerken **Ürün Verisi** alanından **Kupon Ürünü**'nü seçin. "Kupon Ayarları" sekmesinden genel ayarları bu ürün özelinde ezebilirsiniz.
 
-## Lisans
+## Lisans ve Çifte Lisanslama (Dual Licensing)
 
-Bu eklenti GPL-2.0 veya üzeri lisansıyla dağıtılmaktadır.
+Bu eklenti **GNU AGPLv3 (Affero General Public License v3)** ve **Ticari Lisans** olmak üzere çifte lisanslama modeliyle dağıtılmaktadır.
+
+*   **Açık Kaynak Kullanım (AGPLv3):** Eklentiyi açık kaynaklı projelerinizde veya kendi sitelerinizde ücretsiz olarak kullanabilirsiniz. Ancak, eklenti kodunu değiştirip bir web sitesinde/hizmette kullanırsanız, yaptığınız değişiklikleri AGPLv3 lisansı altında açık kaynak olarak paylaşmak **zorundasınız**. Kodları kapalı kaynak haline getirip veya olduğu gibi satamazsınız.
+*   **Ticari Kullanım Lisansı:** Eğer eklenti kodlarını kapalı kaynaklı (proprietary) bir projeye dahil etmek, kodları müşterilerinize kaynak kodunu açmadan satmak veya AGPLv3 kısıtlamalarından muaf olmak istiyorsanız, yazar ile iletişime geçerek ticari lisans satın almanız gerekmektedir.
+
+Detaylar için [LICENSE](file:///c:/Users/fikri/Desktop/avdini.com/Sale_Coupon/LICENSE) dosyasını inceleyebilirsiniz.

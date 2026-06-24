@@ -1,0 +1,33 @@
+# Sale Coupon License - GNU AGPLv3 & Dual Licensing Model
+
+Copyright (C) 2026 Seyfullah Kurt <https://github.com/Seyfullahkurt9>
+
+This software is distributed under a **Dual Licensing Model**. You can choose to use this software under the terms of either the open-source license (GNU AGPLv3) or a separate commercial license.
+
+---
+
+## 1. Open Source License: GNU Affero General Public License (AGPLv3)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+### Key Terms of AGPLv3:
+*   **Copyleft:** Any modifications or derivative works of this codebase must also be open-sourced under the same AGPLv3 license.
+*   **Network Interaction (SaaS Clause):** If you modify this software and run it on a web server to offer services to users over a network (such as on a WooCommerce store or as a SaaS product), you **MUST** make the modified source code available to those network users.
+*   **No Proprietary Distribution:** You cannot take this code, modify it, and sell it as a closed-source/proprietary plugin or software.
+
+For the full official text of the GNU Affero General Public License, please visit:
+<https://www.gnu.org/licenses/agpl-3.0.html>
+
+---
+
+## 2. Commercial License (Çifte Lisans / Dual Licensing)
+
+If you wish to use, modify, or distribute this software under terms other than the GNU AGPLv3, you must obtain a separate **Commercial License** from the copyright holder.
+
+### When do you need a Commercial License?
+*   You want to include this plugin or its code inside a proprietary, closed-source product.
+*   You want to modify this plugin and sell it to clients without being forced to open-source your custom modifications or give them access to the code under AGPLv3.
+*   You want to run this plugin in a corporate environment that forbids the use of AGPLv3 software.
+
+To negotiate a commercial license, please contact the author:
+**Seyfullah Kurt** - <https://github.com/Seyfullahkurt9>

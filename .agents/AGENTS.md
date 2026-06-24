@@ -37,7 +37,15 @@ Eklenti, GitHub releases üzerinden otomatik güncellenmektedir. Sürüm yayınl
 1.  [sale-coupon.php](sale-coupon.php) dosyasındaki `Version:` başlığı ve `SALE_COUPON_VERSION` sabiti güncellenmelidir.
 2.  [package.json](package.json) dosyasındaki versiyon alanı güncellenmelidir.
 3.  `npm run build` komutu çalıştırılarak derlenmiş JS varlıkları güncellenmelidir.
-4.  Git commit atılıp yeni versiyon numarasıyla tag oluşturulmalıdır (örn: `git tag v1.2.2` ve `git push origin v1.2.2`).
+4.  Git commit atılıp yeni versiyon numarasıyla tag oluşturulmalıdır (örn: `git tag v1.3.0` ve `git push origin v1.3.0`).
 5.  `bsdtar` ile Linux uyumlu (düz eğik çizgi `/` içeren) bir `sale-coupon.zip` paketi oluşturulmalı ve GitHub Release varlığı olarak yüklenmelidir.
 
 *Not: Güncellemeleri denetleyen `YahnisElsts\PluginUpdateChecker` kütüphanesi Composer bağımlılığı olarak sisteme entegredir.*
+
+---
+
+## 4. Lisanslama ve Çifte Lisans (Dual Licensing) Kuralları
+
+Eklenti, açık kaynak topluluğu için **GNU AGPLv3** lisansıyla, ticari/kapalı kaynak kullanımı için ise telif sahibi (**Seyfullah Kurt**) tarafından sağlanan **Ticari Lisans** ile çifte lisanslıdır.
+*   Kodda yapılacak herhangi bir geliştirme veya eklenti dağıtımında lisans başlıkları korunmalı ve AGPLv3 kısıtlamalarına uymalıdır.
+*   Kapalı kaynaklı projelerde veya müşteriye özel açık kaynak kod sunulmayan çalışmalarda kullanılacak sürümler için ticari lisans dosyası eklenmeli veya telif sahibinin lisanslama direktifleri izlenmelidir.
