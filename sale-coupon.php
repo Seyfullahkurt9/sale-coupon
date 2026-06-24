@@ -3,7 +3,7 @@
  * Plugin Name:       Sale Coupon
  * Plugin URI:        https://avdini.com/sale-coupon
  * Description:       A modular WooCommerce coupon purchasing plugin allowing customers to buy custom-amount single-use coupons.
- * Version:           1.1.1
+ * Version:           1.2.0
  * Author:            Seyfullah Kurt
  * Author URI:        https://github.com/Seyfullahkurt9
  * License:           GPL-2.0+
@@ -17,15 +17,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Define plugin constants.
-define( 'SALE_COUPON_VERSION', '1.1.1' );
-define( 'SALE_COUPON_FILE', __FILE__ );
-define( 'SALE_COUPON_PATH', plugin_dir_path( __FILE__ ) );
-define( 'SALE_COUPON_URL', plugin_dir_url( __FILE__ ) );
+// Define plugin constants safely.
+if ( ! defined( 'SALE_COUPON_VERSION' ) ) {
+	define( 'SALE_COUPON_VERSION', '1.2.0' );
+}
+if ( ! defined( 'SALE_COUPON_FILE' ) ) {
+	define( 'SALE_COUPON_FILE', __FILE__ );
+}
+if ( ! defined( 'SALE_COUPON_PATH' ) ) {
+	define( 'SALE_COUPON_PATH', plugin_dir_path( __FILE__ ) );
+}
+if ( ! defined( 'SALE_COUPON_URL' ) ) {
+	define( 'SALE_COUPON_URL', plugin_dir_url( __FILE__ ) );
+}
 
 // Load Composer Autoloader.
 if ( file_exists( SALE_COUPON_PATH . 'vendor/autoload.php' ) ) {
 	require_once SALE_COUPON_PATH . 'vendor/autoload.php';
+}
+
+// Setup GitHub Auto Updater.
+if ( class_exists( 'YahnisElsts\PluginUpdateChecker\v5\PucFactory' ) ) {
+	$update_checker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
+		'https://github.com/Seyfullahkurt9/sale-coupon/',
+		__FILE__,
+		'sale-coupon'
+	);
 }
 
 /**
