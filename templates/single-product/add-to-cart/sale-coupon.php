@@ -33,7 +33,7 @@ if ( $product->is_in_stock() ) : ?>
 				<div class="sc-presets-wrapper" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
 					<?php foreach ( $presets as $preset ) : ?>
 						<button type="button" class="button sc-preset-btn" data-value="<?php echo esc_attr( $preset ); ?>" style="padding: 10px 20px;">
-							<?php echo esc_html( wc_price( $preset ) ); ?>
+							<?php echo wp_kses_post( wc_price( $preset ) ); ?>
 						</button>
 					<?php endforeach; ?>
 				</div>
