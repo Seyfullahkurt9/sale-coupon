@@ -74,7 +74,6 @@ class CouponGenerator {
 			// Constraints
 			$coupon->set_usage_limit( 1 );                  // Single-use only
 			$coupon->set_individual_use( true );            // Cannot combine with other coupons
-			$coupon->set_apply_before_tax( true );
 			
 			if ( $expiry_date ) {
 				$coupon->set_date_expires( $expiry_date );
