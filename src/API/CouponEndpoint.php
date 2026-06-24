@@ -26,24 +26,31 @@ class CouponEndpoint {
 		$page     = $request->get_param( 'page' ) ? intval( $request->get_param( 'page' ) ) : 1;
 		$per_page = $request->get_param( 'per_page' ) ? intval( $request->get_param( 'per_page' ) ) : 10;
 
-		// Query WC coupons using WooCommerce CRUD wc_get_coupons
+		// Query WC coupons using WP_Query as shop_coupon post type
 		$query_args = [
-			'limit'      => $per_page,
-			'page'       => $page,
-			'paginate'   => true,
-			'meta_key'   => '_sc_purchased_by',
-			'meta_value' => $user_id,
-			'orderby'    => 'date_created',
-			'order'      => 'DESC',
+			'post_type'      => 'shop_coupon',
+			'post_status'    => 'any',
+			'posts_per_page' => $per_page,
+			'paged'          => $page,
+			'meta_query'     => [
+				[
+					'key'     => '_sc_purchased_by',
+					'value'   => $user_id,
+					'compare' => '=',
+				],
+			],
+			'orderby'        => 'date',
+			'order'          => 'DESC',
 		];
 
-		$results = wc_get_coupons( $query_args );
-		$coupons = $results->coupons;
-		$total   = $results->total;
+		$query        = new \WP_Query( $query_args );
+		$coupon_posts = $query->posts;
+		$total        = $query->found_posts;
 
 		$formatted_coupons = [];
 
-		foreach ( $coupons as $coupon ) {
+		foreach ( $coupon_posts as $post ) {
+			$coupon        = new \WC_Coupon( $post->ID );
 			$id            = $coupon->get_id();
 			$code          = $coupon->get_code();
 			$amount        = $coupon->get_amount();
