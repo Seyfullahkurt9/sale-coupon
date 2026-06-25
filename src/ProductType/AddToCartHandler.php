@@ -25,7 +25,23 @@ class AddToCartHandler {
 		echo '<!-- DEBUG: AddToCartHandler::output_add_to_cart_form executed -->';
 		global $product;
 
-		if ( ! $product || $product->get_type() !== 'sale_coupon' ) {
+		if ( ! $product ) {
+			// Fallback: Try to get the product from post ID if global is not set
+			$product = wc_get_product( get_the_ID() );
+			echo '<!-- DEBUG: global product was empty, fetched from get_the_ID(). Result class: ' . ( $product ? esc_html( get_class( $product ) ) : 'NULL' ) . ' -->';
+		} else {
+			echo '<!-- DEBUG: global product class: ' . esc_html( get_class( $product ) ) . ' -->';
+		}
+
+		if ( ! $product ) {
+			echo '<!-- DEBUG: product is NULL, returning early -->';
+			return;
+		}
+
+		echo '<!-- DEBUG: product type: ' . esc_html( $product->get_type() ) . ' -->';
+
+		if ( $product->get_type() !== 'sale_coupon' ) {
+			echo '<!-- DEBUG: product type is not sale_coupon, returning early -->';
 			return;
 		}
 
@@ -43,6 +59,8 @@ class AddToCartHandler {
 			$max_amount = get_option( 'sc_max_amount', 1000 );
 		}
 
+		echo '<!-- DEBUG: min_amount: ' . esc_html( $min_amount ) . ', max_amount: ' . esc_html( $max_amount ) . ', presets: ' . esc_html( $presets ) . ' -->';
+
 		// Parse presets
 		$preset_array = [];
 		if ( ! empty( $presets ) ) {
@@ -59,6 +77,7 @@ class AddToCartHandler {
 			SALE_COUPON_PATH . 'templates/'
 		);
 		echo '<!-- DEBUG: Located template = ' . esc_html( $located ) . ' -->';
+		echo '<!-- DEBUG: SALE_COUPON_PATH templates = ' . esc_html( SALE_COUPON_PATH . 'templates/' ) . ' -->';
 
 		wc_get_template(
 			'single-product/add-to-cart/sale-coupon.php',
