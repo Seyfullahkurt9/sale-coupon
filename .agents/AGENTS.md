@@ -54,3 +54,15 @@ Eklenti, GitHub releases üzerinden otomatik güncellenmektedir. Sürüm yayınl
 Eklenti, açık kaynak topluluğu için **GNU AGPLv3** lisansıyla, ticari/kapalı kaynak kullanımı için ise telif sahibi (**Seyfullah Kurt**) tarafından sağlanan **Ticari Lisans** ile çifte lisanslıdır.
 *   Kodda yapılacak herhangi bir geliştirme veya eklenti dağıtımında lisans başlıkları korunmalı ve AGPLv3 kısıtlamalarına uymalıdır.
 *   Kapalı kaynaklı projelerde veya müşteriye özel açık kaynak kod sunulmayan çalışmalarda kullanılacak sürümler için ticari lisans dosyası eklenmeli veya telif sahibinin lisanslama direktifleri izlenmelidir.
+
+---
+
+## 5. Git Commit Mesajları ve Versiyon Standartları
+
+Ajanlar, proje üzerinde yapacakları tüm Git commit'lerinde **Conventional Commits** standardına uymak zorundadır. Commit mesajları anlaşılır, net ve aşağıdaki prefix'lere sahip olmalıdır:
+*   **`feat:`** Yeni bir özellik eklendiğinde (örn: `feat: add price range display on shop pages`)
+*   **`fix:`** Bir hata giderildiğinde (örn: `fix: resolve WC_Product::get_price_html signature mismatch`)
+*   **`chore:`** Kod dışı dosya düzenlemeleri, bağımlılık güncellemeleri veya sürüm yayınlama adımlarında (örn: `chore: bump version to 1.4.3`)
+*   **`docs:`** Dokümantasyon değişikliklerinde (örn: `docs: update guidelines in AGENTS.md`)
+*   **`style:`** Kod işleyişini etkilemeyen biçimlendirme ve stil düzenlemelerinde (örn: `style: fix css alignment in frontend`)
+
