@@ -3,7 +3,7 @@
  * Plugin Name:       Sale Coupon
  * Plugin URI:        https://avdini.com/sale-coupon
  * Description:       A modular WooCommerce coupon purchasing plugin allowing customers to buy custom-amount single-use coupons.
- * Version:           1.3.8
+ * Version:           1.3.9
  * Author:            Seyfullah Kurt
  * Author URI:        https://github.com/Seyfullahkurt9
  * License:           AGPL-3.0-or-later
@@ -17,9 +17,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Register a global fatal error and exception logger to catch any checkout crashes
+register_shutdown_function( function() {
+	$error = error_get_last();
+	if ( $error && in_array( $error['type'], [ E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR, E_USER_ERROR ] ) ) {
+		$log_dir = defined( 'WP_CONTENT_DIR' ) ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
+		$log_file = $log_dir . '/uploads/sc-fatal-errors.log';
+		$timestamp = date( 'Y-m-d H:i:s' );
+		$line = "[{$timestamp}] PHP Fatal Error: {$error['message']} in {$error['file']} on line {$error['line']}" . PHP_EOL;
+		if ( ! file_exists( $log_dir . '/uploads' ) ) {
+			@mkdir( $log_dir . '/uploads', 0755, true );
+		}
+		@file_put_contents( $log_file, $line, FILE_APPEND | LOCK_EX );
+	}
+} );
+
+set_exception_handler( function( $exception ) {
+	$log_dir = defined( 'WP_CONTENT_DIR' ) ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
+	$log_file = $log_dir . '/uploads/sc-fatal-errors.log';
+	$timestamp = date( 'Y-m-d H:i:s' );
+	$line = "[{$timestamp}] Uncaught Exception: " . $exception->getMessage() . " in " . $exception->getFile() . " on line " . $exception->getLine() . PHP_EOL;
+	$line .= "Stack trace:" . PHP_EOL . $exception->getTraceAsString() . PHP_EOL;
+	if ( ! file_exists( $log_dir . '/uploads' ) ) {
+		@mkdir( $log_dir . '/uploads', 0755, true );
+	}
+	@file_put_contents( $log_file, $line, FILE_APPEND | LOCK_EX );
+	
+	restore_exception_handler();
+	throw $exception;
+} );
+
 // Define plugin constants safely.
 if ( ! defined( 'SALE_COUPON_VERSION' ) ) {
-	define( 'SALE_COUPON_VERSION', '1.3.8' );
+	define( 'SALE_COUPON_VERSION', '1.3.9' );
 }
 if ( ! defined( 'SALE_COUPON_FILE' ) ) {
 	define( 'SALE_COUPON_FILE', __FILE__ );
