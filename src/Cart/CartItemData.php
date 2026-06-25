@@ -50,7 +50,11 @@ class CartItemData {
 	 */
 	public function get_cart_item_from_session( $cart_item, $values ) {
 		if ( isset( $values['sc_coupon_amount'] ) ) {
-			$cart_item['sc_coupon_amount'] = floatval( $values['sc_coupon_amount'] );
+			$amount = floatval( $values['sc_coupon_amount'] );
+			$cart_item['sc_coupon_amount'] = $amount;
+			if ( isset( $cart_item['data'] ) && is_a( $cart_item['data'], 'WC_Product' ) ) {
+				$cart_item['data']->set_price( $amount );
+			}
 		}
 		return $cart_item;
 	}
