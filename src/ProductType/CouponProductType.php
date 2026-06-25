@@ -111,9 +111,10 @@ class CouponProductType extends \WC_Product_Simple {
 	/**
 	 * Get the price HTML showing min and max range.
 	 *
+	 * @param string $deprecated Deprecated parameter.
 	 * @return string
 	 */
-	public function get_price_html() {
+	public function get_price_html( $deprecated = '' ) {
 		$min_amount = get_post_meta( $this->get_id(), '_sc_product_min_amount', true );
 		$max_amount = get_post_meta( $this->get_id(), '_sc_product_max_amount', true );
 

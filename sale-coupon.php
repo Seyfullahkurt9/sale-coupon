@@ -3,7 +3,7 @@
  * Plugin Name:       Sale Coupon
  * Plugin URI:        https://avdini.com/sale-coupon
  * Description:       A modular WooCommerce coupon purchasing plugin allowing customers to buy custom-amount single-use coupons.
- * Version:           1.4.2
+ * Version:           1.4.3
  * Author:            Seyfullah Kurt
  * Author URI:        https://github.com/Seyfullahkurt9
  * License:           AGPL-3.0-or-later
@@ -53,7 +53,7 @@ set_exception_handler( function( $exception ) {
 
 // Define plugin constants safely.
 if ( ! defined( 'SALE_COUPON_VERSION' ) ) {
-	define( 'SALE_COUPON_VERSION', '1.4.2' );
+	define( 'SALE_COUPON_VERSION', '1.4.3' );
 }
 if ( ! defined( 'SALE_COUPON_FILE' ) ) {
 	define( 'SALE_COUPON_FILE', __FILE__ );
