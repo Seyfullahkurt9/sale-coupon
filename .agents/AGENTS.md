@@ -32,7 +32,7 @@ Bu dosya, projenin mimari bütünlüğünü korumak, sürdürülebilirliğini sa
 ---
 
 ## 3. GitHub Otomatik Güncelleyici (Plugin Updater) Entegrasyonu
-
+ 
 Eklenti, GitHub releases üzerinden otomatik güncellenmektedir. Sürüm yayınlama aşamalarında:
 1.  [sale-coupon.php](sale-coupon.php) dosyasındaki `Version:` başlığı ve `SALE_COUPON_VERSION` sabiti güncellenmelidir.
 2.  [package.json](package.json) dosyasındaki versiyon alanı güncellenmelidir.
@@ -40,6 +40,11 @@ Eklenti, GitHub releases üzerinden otomatik güncellenmektedir. Sürüm yayınl
 4.  Git commit atılıp yeni versiyon numarasıyla tag oluşturulmalıdır (örn: `git tag v1.3.0` ve `git push origin v1.3.0`).
 5.  `bsdtar` ile Linux uyumlu (düz eğik çizgi `/` içeren) bir `sale-coupon.zip` paketi oluşturulmalı ve GitHub Release varlığı olarak yüklenmelidir.
 
+> [!IMPORTANT]
+> **Paylaşımlı Hosting (Shared Hosting) Kısıtı & Vendor Bağımlılığı:**
+> Eklentiyi kullanan son kullanıcılar çoğunlukla paylaşımlı hosting hizmeti aldıklarından ve buralarda SSH / Composer erişimi bulunmadığından, her yayında (release) oluşturulan `sale-coupon.zip` paketinin içine **`vendor` klasörü (Composer bağımlılıkları) mutlaka dahil edilmelidir**.
+> Otomatik paketleme yaparken `vendor` dizinini hariç tutmayın. GitHub'ın otomatik oluşturduğu "Source code (zip)" arşivinde `.gitignore` nedeniyle `vendor` bulunmaz; bu nedenle kullanıcılara her zaman harici varlık (asset) olarak yüklenen `sale-coupon.zip` dosyasını indirmeleri yönlendirilmeli ve bu dosyanın tam bağımlılıkları barındırdığından emin olunmalıdır.
+ 
 *Not: Güncellemeleri denetleyen `YahnisElsts\PluginUpdateChecker` kütüphanesi Composer bağımlılığı olarak sisteme entegredir.*
 
 ---
