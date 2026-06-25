@@ -20,16 +20,25 @@ Müşterilerin WooCommerce mağazasının varsayılan para biriminde istedikleri
 
 ## Kurulum
 
-1.  Eklenti klasörünü zip dosyası olarak indirin veya doğrudan `wp-content/plugins/` dizinine yükleyin.
-2.  WordPress panelinden **Eklentiler** sayfasına gidin ve **Sale Coupon** eklentisini etkinleştirin.
-3.  **Kalıcı Bağlantılar (Permalinks)** ayarlarına gidin ve değişiklikleri kaydedin (Bu işlem "Kuponlarım" sekmesinin düzgün çalışması için gereklidir).
-4.  Bağımlılıkları yüklemek için eklenti dizininde aşağıdaki komutları çalıştırın (Eğer Composer ve NPM yüklü değilse zip sürümünü kullanın):
+### 1. Hazır Paket ile Kolay Kurulum (Önerilen)
+Eklentiyi kullanmak için en kolay yol, derlenmiş ve tüm bağımlılıkları barındıran hazır paket sürümünü yüklemektir:
+1. GitHub Releases sayfasından en güncel **`sale-coupon.zip`** arşivini indirin (GitHub'ın otomatik oluşturduğu "Source code" zip dosyalarını değil, harici varlık olarak yüklenen `sale-coupon.zip` dosyasını indirmelisiniz).
+2. WordPress yönetim panelinizden **Eklentiler > Yeni Ekle > Eklenti Yükle** adımlarını takip ederek zip dosyasını yükleyin ve etkinleştirin.
+3. Bu hazır paket, tüm PHP bağımlılıklarını (`vendor` klasörü) ve derlenmiş frontend varlıklarını içerdiğinden sunucunuzda Composer veya NPM çalıştırmanıza gerek kalmaz.
 
-```bash
-composer install --no-dev --optimize-autoloader
-npm install
-npm run build
-```
+### 2. Geliştiriciler İçin Kaynak Koddan Kurulum
+Eklenti üzerinde geliştirme yapmak veya kaynak koddan derlemek istiyorsanız:
+1. Depoyu klonlayın veya doğrudan `wp-content/plugins/sale-coupon` klasörüne indirin.
+2. Eklenti dizininde bağımlılıkları kurmak ve varlıkları derlemek için sırasıyla şu komutları çalıştırın:
+   ```bash
+   composer install --no-dev --optimize-autoloader
+   npm install
+   npm run build
+   ```
+3. WordPress panelinden **Sale Coupon** eklentisini etkinleştirin.
+
+### Kurulum Sonrası Önemli Adım
+Eklenti etkinleştirildikten sonra, WordPress yönetim panelinde **Ayarlar > Kalıcı Bağlantılar (Permalinks)** sayfasına gidip hiçbir değişiklik yapmadan **Değişiklikleri Kaydet** butonuna tıklayın. Bu işlem, "Hesabım" sayfasındaki "Kuponlarım" sekmesinin düzgün çalışabilmesi için WordPress yönlendirme kurallarını sıfırlamak üzere zorunludur.
 
 ## Yapılandırma
 
@@ -38,8 +47,7 @@ npm run build
 *   Kupon kodu ön eki (Prefix)
 *   Rastgele karakter uzunluğu (Güvenlik nedeniyle min: 8)
 *   Minimum ve maksimum fiyat limitleri
-*   Varsayılan indirim türü (Sepet/Ürün)
-*   Geçerlilik süresi (gün)
+*   Varsayılan indirim türü (Sepet/Ürün İndirimi)
 *   E-posta bildirim durumu
 
 ### Ürün Bazlı Ayarlar
