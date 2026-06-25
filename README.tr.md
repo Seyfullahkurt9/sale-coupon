@@ -25,7 +25,7 @@ Müşterilerin WooCommerce mağazasının varsayılan para biriminde istedikleri
 
 ### 1. Hazır Paket ile Kolay Kurulum (Önerilen)
 Eklentiyi kullanmak için en kolay yol, derlenmiş ve tüm bağımlılıkları barındıran hazır paket sürümünü yüklemektir:
-1. GitHub Releases sayfasından en güncel **`sale-coupon.zip`** arşivini indirin (GitHub'ın otomatik oluşturduğu "Source code" zip dosyalarını değil, harici varlık olarak yüklenen `sale-coupon.zip` dosyasını indirmelisiniz).
+1. [GitHub Releases](https://github.com/Seyfullahkurt9/sale-coupon/releases) sayfasından en güncel **`sale-coupon.zip`** arşivini indirin (GitHub'ın otomatik oluşturduğu "Source code" zip dosyalarını değil, harici varlık olarak yüklenen `sale-coupon.zip` dosyasını indirmelisiniz).
 2. WordPress yönetim panelinizden **Eklentiler > Yeni Ekle > Eklenti Yükle** adımlarını takip ederek zip dosyasını yükleyin ve etkinleştirin.
 3. Bu hazır paket, tüm PHP bağımlılıklarını (`vendor` klasörü) ve derlenmiş frontend varlıklarını içerdiğinden sunucunuzda Composer veya NPM çalıştırmanıza gerek kalmaz.
 

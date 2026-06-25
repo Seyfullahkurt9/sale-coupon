@@ -25,7 +25,7 @@ A modular WordPress plugin allowing customers to purchase custom-amount, single-
 
 ### 1. Simple Installation with Pre-packaged ZIP (Recommended)
 The easiest way to install the plugin is using the pre-compiled version:
-1. Go to the GitHub Releases page and download the latest **`sale-coupon.zip`** asset (make sure to download the compiled `sale-coupon.zip` and not the automatically generated "Source code" zip).
+1. Go to the [GitHub Releases](https://github.com/Seyfullahkurt9/sale-coupon/releases) page and download the latest **`sale-coupon.zip`** asset (make sure to download the compiled `sale-coupon.zip` and not the automatically generated "Source code" zip).
 2. Go to your WordPress Dashboard, navigate to **Plugins > Add New > Upload Plugin**, select the zip file, upload and activate it.
 3. This package contains all pre-compiled assets and Composer dependencies (`vendor/` directory), so you do not need CLI or Composer access on your hosting.
 
