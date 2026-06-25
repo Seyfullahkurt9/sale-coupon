@@ -22,6 +22,7 @@ class AddToCartHandler {
 	 * Render the custom add to cart template.
 	 */
 	public function output_add_to_cart_form() {
+		echo '<!-- DEBUG: AddToCartHandler::output_add_to_cart_form executed -->';
 		global $product;
 
 		if ( ! $product || $product->get_type() !== 'sale_coupon' ) {
