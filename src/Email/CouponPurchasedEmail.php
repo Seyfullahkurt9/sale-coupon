@@ -81,7 +81,15 @@ class WC_Email_Coupon_Purchased extends WC_Email {
 			$this->coupon_amount = floatval( $amount );
 
 			$expiry = $coupon->get_date_expires();
-			$this->expiry_date   = $expiry ? $expiry->date_i18n( get_option( 'date_format' ) ) : __( 'Sınırsız', 'sale-coupon' );
+			if ( is_a( $expiry, 'DateTime' ) ) {
+				$this->expiry_date = date_i18n( get_option( 'date_format' ), $expiry->getTimestamp() );
+			} elseif ( is_numeric( $expiry ) ) {
+				$this->expiry_date = date_i18n( get_option( 'date_format' ), $expiry );
+			} elseif ( is_string( $expiry ) && ! empty( $expiry ) ) {
+				$this->expiry_date = date_i18n( get_option( 'date_format' ), strtotime( $expiry ) );
+			} else {
+				$this->expiry_date = __( 'Sınırsız', 'sale-coupon' );
+			}
 		}
 
 		if ( ! $this->is_enabled() || ! $this->get_recipient() ) {
