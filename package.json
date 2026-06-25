@@ -1,6 +1,6 @@
 {
   "name": "sale-coupon",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "WooCommerce coupon purchasing plugin asset compiler",
   "scripts": {
     "build": "wp-scripts build",

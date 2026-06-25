@@ -53,6 +53,13 @@ class AddToCartHandler {
 		}
 
 		// Load template and pass variables
+		$located = wc_locate_template(
+			'single-product/add-to-cart/sale-coupon.php',
+			'',
+			SALE_COUPON_PATH . 'templates/'
+		);
+		echo '<!-- DEBUG: Located template = ' . esc_html( $located ) . ' -->';
+
 		wc_get_template(
 			'single-product/add-to-cart/sale-coupon.php',
 			[
