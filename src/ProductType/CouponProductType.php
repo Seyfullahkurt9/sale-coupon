@@ -107,4 +107,32 @@ class CouponProductType extends \WC_Product_Simple {
 		$price = parent::get_sale_price( $context );
 		return $price === '' ? 0.0 : $price;
 	}
+
+	/**
+	 * Get the price HTML showing min and max range.
+	 *
+	 * @return string
+	 */
+	public function get_price_html() {
+		$min_amount = get_post_meta( $this->get_id(), '_sc_product_min_amount', true );
+		$max_amount = get_post_meta( $this->get_id(), '_sc_product_max_amount', true );
+
+		if ( empty( $min_amount ) ) {
+			$min_amount = get_option( 'sc_min_amount', 10 );
+		}
+		if ( empty( $max_amount ) ) {
+			$max_amount = get_option( 'sc_max_amount', 1000 );
+		}
+
+		$min_amount = floatval( $min_amount );
+		$max_amount = floatval( $max_amount );
+
+		if ( $min_amount === $max_amount ) {
+			$price = wc_price( $min_amount );
+		} else {
+			$price = wc_format_price_range( $min_amount, $max_amount );
+		}
+
+		return apply_filters( 'woocommerce_get_price_html', $price, $this );
+	}
 }
