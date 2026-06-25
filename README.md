@@ -1,63 +1,66 @@
-# Sale Coupon - WooCommerce Kupon Satış Eklentisi
+# Sale Coupon - WooCommerce Coupon Sales Plugin
 
-Müşterilerin WooCommerce mağazasının varsayılan para biriminde istedikleri miktarda tek kullanımlık, özel hediye kuponları satın alıp kendi profillerinde (Hesabım) yönetebildikleri modüler yapıda bir WordPress eklentisi.
+🌐 Read this in other languages: [English](README.md) | [Türkçe](README.tr.md)
 
-## Özellikler
+A modular WordPress plugin allowing customers to purchase custom-amount, single-use, unique gift coupons in the store's default currency and manage them directly in their "My Account" area.
 
-*   **Özel Ürün Tipi (`sale_coupon`):** Satıcılar WooCommerce panelinden yeni bir "Kupon Ürünü" ekleyebilir. Fiyat dinamik olarak müşteri tarafından belirlenir.
-*   **Hazır Butonlar + Serbest Giriş:** Satıcı ürün sayfasında gösterilecek hazır fiyat butonları (örn: 25₺, 50₺, 100₺) ve özel miktar giriş alanını ayarlayabilir.
-*   **Kupon Satın Alımına İndirim Engeli:** Güvenlik önlemi olarak, sepetinde kupon ürünü bulunan siparişlerde hiçbir indirim kuponunun kullanılmasına izin verilmez.
-*   **Tekli Satın Alma Limiti:** Sepete aynı anda yalnızca tek bir kupon ürünü eklenebilir.
-*   **Güvenli ve Benzersiz Kod Üretimi:** Okunabilirliği zorlaştıran benzer karakterler (0/O, 1/I/L) elenerek, kriptografik rastgele benzersiz kupon kodları oluşturulur.
-*   **Hesabım Entegrasyonu:** Müşteri satın aldığı kuponları "Hesabım > Kuponlarım" sekmesi altından görebilir, tek tıkla kopyalayabilir.
-*   **E-Posta Bildirimi:** Kupon oluşturulduğunda müşteriye kupon kodunu ve ayrıntılarını içeren WooCommerce şablonuyla uyumlu e-posta gönderilir.
+## Features
 
-## Gereksinimler
+*   **Custom Product Type (`sale_coupon`):** Store owners can add a new "Coupon Product" from the WooCommerce product data panel. The price is dynamically defined by the customer at the front-end.
+*   **Preset Buttons + Custom Amount Input:** Sellers can configure preset price buttons (e.g., 25$, 50$, 100$) and/or a custom amount text entry field on the product details page.
+*   **Prevent Discounts on Coupon Purchases:** As a security measure, coupon codes cannot be applied to orders that contain a coupon product in the cart.
+*   **Dynamic Price Display:** Automatically shows the minimum and maximum price range (e.g., $10 - $1000) on archive and shop pages instead of 0 TL.
+*   **Single Quantity Enforcement:** Only one coupon product can be added to the cart at a time.
+*   **Secure & Unique Code Generation:** Cryptographically random, unique coupon codes are generated, excluding visually similar characters (like 0/O, 1/I/L) to prevent human errors.
+*   **My Account Integration:** Customers can view and copy their purchased coupon codes directly from the "My Account > My Coupons" tab.
+*   **Email Notifications:** Sends a beautifully styled WooCommerce email notification containing the coupon code and order details once the purchase is complete.
 
-*   WordPress 6.0 veya üzeri
-*   WooCommerce 8.0 veya üzeri
-*   PHP 7.4 veya üzeri
+## Requirements
 
-## Kurulum
+*   WordPress 6.0 or higher
+*   WooCommerce 8.0 or higher
+*   PHP 7.4 or higher
 
-### 1. Hazır Paket ile Kolay Kurulum (Önerilen)
-Eklentiyi kullanmak için en kolay yol, derlenmiş ve tüm bağımlılıkları barındıran hazır paket sürümünü yüklemektir:
-1. GitHub Releases sayfasından en güncel **`sale-coupon.zip`** arşivini indirin (GitHub'ın otomatik oluşturduğu "Source code" zip dosyalarını değil, harici varlık olarak yüklenen `sale-coupon.zip` dosyasını indirmelisiniz).
-2. WordPress yönetim panelinizden **Eklentiler > Yeni Ekle > Eklenti Yükle** adımlarını takip ederek zip dosyasını yükleyin ve etkinleştirin.
-3. Bu hazır paket, tüm PHP bağımlılıklarını (`vendor` klasörü) ve derlenmiş frontend varlıklarını içerdiğinden sunucunuzda Composer veya NPM çalıştırmanıza gerek kalmaz.
+## Installation
 
-### 2. Geliştiriciler İçin Kaynak Koddan Kurulum
-Eklenti üzerinde geliştirme yapmak veya kaynak koddan derlemek istiyorsanız:
-1. Depoyu klonlayın veya doğrudan `wp-content/plugins/sale-coupon` klasörüne indirin.
-2. Eklenti dizininde bağımlılıkları kurmak ve varlıkları derlemek için sırasıyla şu komutları çalıştırın:
+### 1. Simple Installation with Pre-packaged ZIP (Recommended)
+The easiest way to install the plugin is using the pre-compiled version:
+1. Go to the GitHub Releases page and download the latest **`sale-coupon.zip`** asset (make sure to download the compiled `sale-coupon.zip` and not the automatically generated "Source code" zip).
+2. Go to your WordPress Dashboard, navigate to **Plugins > Add New > Upload Plugin**, select the zip file, upload and activate it.
+3. This package contains all pre-compiled assets and Composer dependencies (`vendor/` directory), so you do not need CLI or Composer access on your hosting.
+
+### 2. Developer Installation from Source
+If you wish to contribute to the code or build from source:
+1. Clone the repository or extract the files directly into your `wp-content/plugins/sale-coupon` directory.
+2. Run the following commands in the plugin directory to install dependencies and compile files:
    ```bash
    composer install --no-dev --optimize-autoloader
    npm install
    npm run build
    ```
-3. WordPress panelinden **Sale Coupon** eklentisini etkinleştirin.
+3. Activate the **Sale Coupon** plugin from the WordPress Dashboard.
 
-### Kurulum Sonrası Önemli Adım
-Eklenti etkinleştirildikten sonra, WordPress yönetim panelinde **Ayarlar > Kalıcı Bağlantılar (Permalinks)** sayfasına gidip hiçbir değişiklik yapmadan **Değişiklikleri Kaydet** butonuna tıklayın. Bu işlem, "Hesabım" sayfasındaki "Kuponlarım" sekmesinin düzgün çalışabilmesi için WordPress yönlendirme kurallarını sıfırlamak üzere zorunludur.
+### Crucial Post-Installation Step
+After activating the plugin, go to **Settings > Permalinks** in your WordPress dashboard and click **Save Changes** without making any modifications. This flushes the rewrite rules, which is mandatory for the "My Coupons" endpoint under the "My Account" page to resolve correctly.
 
-## Yapılandırma
+## Configuration
 
-### Genel Ayarlar
-**WooCommerce > Ayarlar > Sale Coupon** sekmesine giderek varsayılan ayarları düzenleyin:
-*   Kupon kodu ön eki (Prefix)
-*   Rastgele karakter uzunluğu (Güvenlik nedeniyle min: 8)
-*   Minimum ve maksimum fiyat limitleri
-*   Varsayılan indirim türü (Sepet/Ürün İndirimi)
-*   E-posta bildirim durumu
+### Global Settings
+Navigate to **WooCommerce > Settings > Sale Coupon** to customize the default parameters:
+*   Default coupon prefix (e.g., GIFT-)
+*   Random character length (min: 8 for security)
+*   Minimum and maximum coupon limits
+*   Default discount type (Fixed cart / Fixed product discount)
+*   Email notification toggles
 
-### Ürün Bazlı Ayarlar
-Yeni bir ürün eklerken **Ürün Verisi** alanından **Kupon Ürünü**'nü seçin. "Kupon Ayarları" sekmesinden genel ayarları bu ürün özelinde ezebilirsiniz.
+### Product-Specific Settings
+When adding a new product, select **Coupon Product** from the **Product Data** dropdown. You can override the default global limits, prefixes, and preset buttons specifically for this product under the "Coupon Settings" tab.
 
-## Lisans ve Çifte Lisanslama (Dual Licensing)
+## License and Dual Licensing
 
-Bu eklenti **GNU AGPLv3 (Affero General Public License v3)** ve **Ticari Lisans** olmak üzere çifte lisanslama modeliyle dağıtılmaktadır.
+This plugin is distributed under a dual-licensing model: **GNU AGPLv3 (Affero General Public License v3)** and a **Commercial License**.
 
-*   **Açık Kaynak Kullanım (AGPLv3):** Eklentiyi açık kaynaklı projelerinizde veya kendi sitelerinizde ücretsiz olarak kullanabilirsiniz. Ancak, eklenti kodunu değiştirip bir web sitesinde/hizmette kullanırsanız, yaptığınız değişiklikleri AGPLv3 lisansı altında açık kaynak olarak paylaşmak **zorundasınız**. Kodları kapalı kaynak haline getirip veya olduğu gibi satamazsınız.
-*   **Ticari Kullanım Lisansı:** Eğer eklenti kodlarını kapalı kaynaklı (proprietary) bir projeye dahil etmek, kodları müşterilerinize kaynak kodunu açmadan satmak veya AGPLv3 kısıtlamalarından muaf olmak istiyorsanız, yazar ile iletişime geçerek ticari lisans satın almanız gerekmektedir.
+*   **Open Source Usage (AGPLv3):** You can use this plugin for free in open-source projects or personal sites. However, if you modify the code and run it on a network/website, you **must** release your modified source code under the AGPLv3 license. You cannot make the code proprietary or resell it as-is.
+*   **Commercial Usage License:** If you wish to integrate the plugin code into proprietary (closed-source) projects, resell it without releasing the source code, or be exempt from AGPLv3 restrictions, you must purchase a commercial license by contacting the author.
 
-Detaylar için [LICENSE](file:///c:/Users/fikri/Desktop/avdini.com/Sale_Coupon/LICENSE) dosyasını inceleyebilirsiniz.
+For details, please refer to the [LICENSE](file:///c:/Users/fikri/Desktop/avdini.com/Sale_Coupon/LICENSE) file.
