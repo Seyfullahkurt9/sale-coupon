@@ -72,7 +72,39 @@ class CouponProductType extends \WC_Product_Simple {
 	 * @param string $context What the value is for. Valid values are view and edit.
 	 * @return string
 	 */
+	/**
+	 * Return the price of the product.
+	 * If no price is set, return 0.0 to avoid PHP 8 type errors in calculations.
+	 *
+	 * @param string $context What the value is for. Valid values are view and edit.
+	 * @return string|float
+	 */
 	public function get_price( $context = 'view' ) {
-		return parent::get_price( $context );
+		$price = parent::get_price( $context );
+		return $price === '' ? 0.0 : $price;
+	}
+
+	/**
+	 * Return the regular price of the product.
+	 * If no price is set, return 0.0 to avoid PHP 8 type errors in calculations.
+	 *
+	 * @param string $context What the value is for.
+	 * @return string|float
+	 */
+	public function get_regular_price( $context = 'view' ) {
+		$price = parent::get_regular_price( $context );
+		return $price === '' ? 0.0 : $price;
+	}
+
+	/**
+	 * Return the sale price of the product.
+	 * If no price is set, return 0.0 to avoid PHP 8 type errors in calculations.
+	 *
+	 * @param string $context What the value is for.
+	 * @return string|float
+	 */
+	public function get_sale_price( $context = 'view' ) {
+		$price = parent::get_sale_price( $context );
+		return $price === '' ? 0.0 : $price;
 	}
 }
