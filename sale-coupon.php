@@ -3,7 +3,7 @@
  * Plugin Name:       Sale Coupon
  * Plugin URI:        https://avdini.com/sale-coupon
  * Description:       A modular WooCommerce coupon purchasing plugin allowing customers to buy custom-amount single-use coupons.
- * Version:           1.3.3
+ * Version:           1.3.4
  * Author:            Seyfullah Kurt
  * Author URI:        https://github.com/Seyfullahkurt9
  * License:           AGPL-3.0-or-later
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Define plugin constants safely.
 if ( ! defined( 'SALE_COUPON_VERSION' ) ) {
-	define( 'SALE_COUPON_VERSION', '1.3.3' );
+	define( 'SALE_COUPON_VERSION', '1.3.4' );
 }
 if ( ! defined( 'SALE_COUPON_FILE' ) ) {
 	define( 'SALE_COUPON_FILE', __FILE__ );
@@ -73,6 +73,27 @@ register_deactivation_hook( __FILE__, [ 'SaleCoupon\Core\Deactivator', 'deactiva
 add_action( 'woocommerce_loaded', function() {
 	// Start the plugin.
 	\SaleCoupon\Core\Plugin::instance();
+} );
+
+/**
+ * Temporary Frontend Product Debugger
+ */
+add_action( 'wp_head', function() {
+	if ( is_product() ) {
+		global $post;
+		if ( $post ) {
+			$product = wc_get_product( $post->ID );
+			if ( $product ) {
+				echo "\n<!-- SALE COUPON DEBUG: \n";
+				echo "Class: " . get_class( $product ) . "\n";
+				echo "Type: " . $product->get_type() . "\n";
+				echo "Purchasable: " . ( $product->is_purchasable() ? 'YES' : 'NO' ) . "\n";
+				echo "In Stock: " . ( $product->is_in_stock() ? 'YES' : 'NO' ) . "\n";
+				echo "Price: " . $product->get_price() . "\n";
+				echo "-->\n";
+			}
+		}
+	}
 } );
 
 /**
