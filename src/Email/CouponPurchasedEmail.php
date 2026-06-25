@@ -37,12 +37,7 @@ class WC_Email_Coupon_Purchased extends WC_Email {
 	 */
 	public $coupon_amount;
 
-	/**
-	 * Expiry date.
-	 *
-	 * @var string
-	 */
-	public $expiry_date;
+
 
 	/**
 	 * Constructor.
@@ -79,17 +74,6 @@ class WC_Email_Coupon_Purchased extends WC_Email {
 			$this->coupon        = $coupon;
 			$this->coupon_code   = $coupon->get_code();
 			$this->coupon_amount = floatval( $amount );
-
-			$expiry = $coupon->get_date_expires();
-			if ( is_a( $expiry, 'DateTime' ) ) {
-				$this->expiry_date = date_i18n( get_option( 'date_format' ), $expiry->getTimestamp() );
-			} elseif ( is_numeric( $expiry ) ) {
-				$this->expiry_date = date_i18n( get_option( 'date_format' ), $expiry );
-			} elseif ( is_string( $expiry ) && ! empty( $expiry ) ) {
-				$this->expiry_date = date_i18n( get_option( 'date_format' ), strtotime( $expiry ) );
-			} else {
-				$this->expiry_date = __( 'Sınırsız', 'sale-coupon' );
-			}
 		}
 
 		if ( ! $this->is_enabled() || ! $this->get_recipient() ) {
@@ -114,7 +98,6 @@ class WC_Email_Coupon_Purchased extends WC_Email {
 				'coupon'        => $this->coupon,
 				'coupon_code'   => $this->coupon_code,
 				'coupon_amount' => $this->coupon_amount,
-				'expiry_date'   => $this->expiry_date,
 				'email_heading' => $this->get_heading(),
 				'sent_to_admin' => false,
 				'plain_text'    => false,

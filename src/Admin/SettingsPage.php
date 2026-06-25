@@ -122,18 +122,7 @@ class SettingsPage {
 				],
 				'class'   => 'wc-enhanced-select',
 			],
-			[
-				'title'             => __( 'Geçerlilik Süresi (Gün)', 'sale-coupon' ),
-				'desc'              => __( 'Oluşturulan kuponların kaç gün boyunca geçerli olacağı (Sınırsız için boş bırakın veya 0 yazın).', 'sale-coupon' ),
-				'id'                => 'sc_expiry_days',
-				'type'              => 'number',
-				'default'           => 365,
-				'css'               => 'width: 80px;',
-				'custom_attributes' => [
-					'min'  => 0,
-					'step' => 1,
-				],
-			],
+
 			[
 				'title'   => __( 'E-posta Bildirimi', 'sale-coupon' ),
 				'desc'    => __( 'Kupon başarıyla oluşturulduğunda müşteriye kupon kodunu içeren e-posta gönderilsin.', 'sale-coupon' ),

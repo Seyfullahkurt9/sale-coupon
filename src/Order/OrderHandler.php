@@ -63,13 +63,11 @@ class OrderHandler {
 				// Get product level configuration overrides.
 				$product_id = $product->get_id();
 				$prefix        = get_post_meta( $product_id, '_sc_product_prefix', true );
-				$expiry_days   = get_post_meta( $product_id, '_sc_product_expiry_days', true );
 				$discount_type = get_post_meta( $product_id, '_sc_product_discount_type', true );
 
 				// Call generator with config overrides.
 				$coupon = CouponGenerator::generate( $amount, [
 					'prefix'        => $prefix,
-					'expiry_days'   => $expiry_days,
 					'discount_type' => $discount_type,
 					'purchaser_id'  => $purchaser_id,
 					'order_id'      => $order_id,

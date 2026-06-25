@@ -54,19 +54,7 @@ class ProductDataPanels {
 					'description' => __( 'Boş bırakılırsa genel ayarlardaki prefix kullanılır.', 'sale-coupon' ),
 				] );
 
-				// Expiry Days Override
-				woocommerce_wp_text_input( [
-					'id'          => '_sc_product_expiry_days',
-					'label'       => __( 'Geçerlilik Süresi (Gün)', 'sale-coupon' ),
-					'type'        => 'number',
-					'placeholder' => get_option( 'sc_expiry_days', '365' ),
-					'desc_tip'    => true,
-					'description' => __( 'Boş bırakılırsa genel ayarlardaki gün kullanılır.', 'sale-coupon' ),
-					'custom_attributes' => [
-						'min'  => 0,
-						'step' => 1,
-					],
-				] );
+
 
 				// Discount Type Override
 				woocommerce_wp_select( [
@@ -136,7 +124,6 @@ class ProductDataPanels {
 	public function save_product_settings( $post_id ) {
 		$fields = [
 			'_sc_product_prefix',
-			'_sc_product_expiry_days',
 			'_sc_product_discount_type',
 			'_sc_product_min_amount',
 			'_sc_product_max_amount',

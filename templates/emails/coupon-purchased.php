@@ -35,10 +35,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 			<th scope="row" style="text-align: left; border: 1px solid #eee; background-color: #fdfdfd;"><?php esc_html_e( 'Sipariş No:', 'sale-coupon' ); ?></th>
 			<td style="text-align: left; border: 1px solid #eee;"><?php echo esc_html( $order->get_order_number() ); ?></td>
 		</tr>
-		<tr>
-			<th scope="row" style="text-align: left; border: 1px solid #eee; background-color: #fdfdfd;"><?php esc_html_e( 'Son Kullanma Tarihi:', 'sale-coupon' ); ?></th>
-			<td style="text-align: left; border: 1px solid #eee;"><?php echo esc_html( $expiry_date ); ?></td>
-		</tr>
+
 		<tr>
 			<th scope="row" style="text-align: left; border: 1px solid #eee; background-color: #fdfdfd;"><?php esc_html_e( 'Kullanım Koşulu:', 'sale-coupon' ); ?></th>
 			<td style="text-align: left; border: 1px solid #eee;"><?php esc_html_e( 'Tek kullanımlıktır ve başka kuponlarla birleştirilemez.', 'sale-coupon' ); ?></td>
