@@ -30,8 +30,10 @@ class PriceOverride {
 			return;
 		}
 
-		if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 ) {
-			// Running multiple times is normal in WC, but let's make sure we check we don't cause loops.
+		if ( did_action( 'woocommerce_before_calculate_totals' ) >= 20 ) {
+			// Prevent infinite loops if another plugin calls calculate_totals recursively.
+			// Up to 2-3 times is normal, 20 is a safe threshold.
+			return;
 		}
 
 		foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {

@@ -17,6 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Store previous handler to call it later
+global $sc_previous_exception_handler;
+
 // Register a global fatal error and exception logger to catch any checkout crashes
 register_shutdown_function( function() {
 	$error = error_get_last();
@@ -32,7 +35,7 @@ register_shutdown_function( function() {
 	}
 } );
 
-set_exception_handler( function( $exception ) {
+$sc_previous_exception_handler = set_exception_handler( function( $exception ) {
 	try {
 		$log_dir = defined( 'WP_CONTENT_DIR' ) ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
 		$log_file = $log_dir . '/uploads/sc-fatal-errors.log';
@@ -47,8 +50,19 @@ set_exception_handler( function( $exception ) {
 		// Ignore errors inside the handler to prevent recursion
 	}
 	
-	restore_exception_handler();
-	throw $exception;
+	global $sc_previous_exception_handler;
+
+	if ( is_callable( $sc_previous_exception_handler ) ) {
+		call_user_func( $sc_previous_exception_handler, $exception );
+	} else {
+		// No previous handler, stop execution to prevent white screen of death without info
+		// or at least don't re-throw to avoid infinite recursion fatal errors
+		if ( ! headers_sent() ) {
+			header( 'HTTP/1.1 500 Internal Server Error' );
+		}
+		echo "A fatal error occurred. Please check the site error logs.";
+		exit;
+	}
 } );
 
 // Define plugin constants safely.
